@@ -12,7 +12,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data = Product::all();
+        $data = Product::latest()->get();
         return response()->json([
             'status' => true,
             'message' => 'success get all products',
