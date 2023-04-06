@@ -17,7 +17,6 @@ class ProductController extends Controller
             'status' => true,
             'message' => 'success get all products',
             'data' => $data,
-
         ]);
     }
 
@@ -104,6 +103,7 @@ class ProductController extends Controller
                 'data' => null
             ], 400);
         }
+
         $product = Product::find($id);
         if (!$product) {
             return response()->json([
