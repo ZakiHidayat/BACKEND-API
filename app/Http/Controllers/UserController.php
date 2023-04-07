@@ -21,7 +21,7 @@ class UserController extends Controller
             ], 400);
         }
         $user = User::find($id);
-        if ($user) {
+        if (!$user) {
             return response()->json([
                 'status' => false,
                 'message' => 'User not found'
@@ -31,7 +31,7 @@ class UserController extends Controller
         $user->update($data);
         return response()->json([
             'status' => true,
-            'message' => 'Data berhasil diupdate'
+            'data' => $user,
         ]);
     }
 
